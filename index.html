@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 20px;
+            background: #f8fafc;
+        }
+        .exercise-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .step {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            background: #f1f5f9;
+        }
+        .binary {
+            font-family: monospace;
+            font-size: 1.2em;
+            letter-spacing: 2px;
+            color: #0f172a;
+        }
+        .highlight {
+            background: #dbeafe;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .title {
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        .exercise-title {
+            color: #334155;
+            margin-bottom: 15px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .table th, .table td {
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+        .table th {
+            background: #f8fafc;
+        }
+        .note {
+            padding: 10px;
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Ejercicios de Representación de Números Negativos</h1>
+
+        <!-- Ejercicio 1 -->
+        <div class="exercise-card">
+            <h2 class="exercise-title">Ejercicio 1: Convertir -37 a Complemento a 2 (8 bits)</h2>
+            
+            <div class="step">
+                <strong>Paso 1:</strong> Número positivo en binario<br>
+                <span class="binary">+37 = 00100101</span>
+            </div>
+            
+            <div class="step">
+                <strong>Paso 2:</strong> Complemento a 1 (invertir bits)<br>
+                <span class="binary">11011010</span>
+            </div>
+            
+            <div class="step">
+                <strong>Paso 3:</strong> Complemento a 2 (sumar 1)<br>
+                <span class="binary highlight">11011011</span>
+            </div>
+        </div>
+
+        <!-- Ejercicio 2 -->
+        <div class="exercise-card">
+            <h2 class="exercise-title">Ejercicio 2: Convertir -19 usando los tres métodos (8 bits)</h2>
+            
+            <table class="table">
+                <tr>
+                    <th>Método</th>
+                    <th>Resultado</th>
+                    <th>Explicación</th>
+                </tr>
+                <tr>
+                    <td>Bit de Signo</td>
+                    <td class="binary">10010011</td>
+                    <td>1 para negativo + magnitud binaria de 19</td>
+                </tr>
+                <tr>
+                    <td>Complemento a 1</td>
+                    <td class="binary">11101100</td>
+                    <td>Invertir todos los bits de +19 (00010011)</td>
+                </tr>
+                <tr>
+                    <td>Complemento a 2</td>
+                    <td class="binary highlight">11101101</td>
+                    <td>Complemento a 1 + 1</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Ejercicio 3 -->
+        <div class="exercise-card">
+            <h2 class="exercise-title">Ejercicio 3: Rango de números en Complemento a 2 (8 bits)</h2>
+            
+            <table class="table">
+                <tr>
+                    <th>Rango</th>
+                    <th>Valores</th>
+                    <th>Representación</th>
+                </tr>
+                <tr>
+                    <td>Positivos</td>
+                    <td>0 a +127</td>
+                    <td class="binary">00000000 a 01111111</td>
+                </tr>
+                <tr>
+                    <td>Negativos</td>
+                    <td>-128 a -1</td>
+                    <td class="binary">10000000 a 11111111</td>
+                </tr>
+            </table>
+
+            <div class="note">
+                <strong>Nota:</strong> En complemento a 2 con 8 bits, el rango es asimétrico porque incluye un valor negativo adicional (-128) que no tiene su contraparte positiva.
+            </div>
+        </div>
+
+        <!-- Resumen -->
+        <div class="exercise-card">
+            <h2 class="exercise-title">Resumen de Características</h2>
+            
+            <table class="table">
+                <tr>
+                    <th>Método</th>
+                    <th>Ventajas</th>
+                    <th>Desventajas</th>
+                </tr>
+                <tr>
+                    <td>Bit de Signo</td>
+                    <td>
+                        • Simple de entender<br>
+                        • Fácil de implementar
+                    </td>
+                    <td>
+                        • Dos representaciones del cero<br>
+                        • Operaciones complejas
+                    </td>
+                </tr>
+                <tr>
+                    <td>Complemento a 1</td>
+                    <td>
+                        • Fácil de calcular<br>
+                        • Reversible
+                    </td>
+                    <td>
+                        • Dos representaciones del cero<br>
+                        • Requiere ajustes en operaciones
+                    </td>
+                </tr>
+                <tr>
+                    <td>Complemento a 2</td>
+                    <td>
+                        • Una única representación del cero<br>
+                        • Operaciones más eficientes
+                    </td>
+                    <td>
+                        • Rango asimétrico<br>
+                        • Un paso adicional en la conversión
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
